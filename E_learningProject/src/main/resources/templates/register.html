@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:insert="fragments/head">
+</head>
+<body>
+<header th:insert="fragments/header"></header>
+
+<main>
+    <div class="container">
+        <h3 class="center">Welcome to E-learning Platform</h3>
+        <br>
+        <div class="row">
+            <div class="section col s12 l6 offset-l3">
+                <form method="post"
+                      th:object="${user}"
+                      th:action="@{/register}"
+                >
+                    <div th:if="${param.error}">
+                        <h5 class="center red-text text-lighten-1">${param.error}</h5>
+                    </div>
+                    <br>
+
+                    <div class="input-field">
+                        <label for="userName">userName</label>
+                        <input type="text" class="class-controller"
+                               id="userName" th:field="*{userName}" required autofocus
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="userEmail">userEmail</label>
+                        <input type="text" class="class-controller"
+                               id="userEmail" th:field="*{userEmail}" required
+                        >
+                    </div>
+
+                    <div class="input-field">
+                        <label for="designation">designation</label>
+                        <input type="text" class="class-controller"
+                               id="designation" th:field="*{designation}" required
+                        >
+                    </div>
+
+                    <div class="file-field input-field">
+                        <div class="input-field">
+                            <label for="userPassword">userPassword</label>
+                            <input type="text" class="class-controller" id="userPassword" th:field="*{userPassword}" required>
+                        </div>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="userPhone">userPhone</label>
+                        <input type="text" class="class-controller"
+                               id="userPhone" th:field="*{userPhone}" required
+                        >
+                    </div>
+
+                    <div class="input-field mb-5">
+                        <label for="date">date</label>
+                        <input type="date" class="class-controller"
+                               id="date" th:field="*{date}" required
+                        >
+                    </div>
+
+                    <button type="submit" class="btn right">
+                        Register
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+<br><br>
+<footer class="page-footer teal" th:insert="fragments/footer">
+
+</footer>
+
+<!--  Scripts-->
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/materialize.js"></script>
+<script src="/js/init.js"></script>
+</body>
+</html>
